@@ -49,6 +49,9 @@ export const phases = [
           'Research allows you to understand the needs of your community and ensure your program is responsive to those needs. The data you collect through outreach forms the foundation of a needs assessment — a collection of information showing both assets and gaps in community services that grant funders commonly require. Start with an asset map to identify existing strengths, then layer in a needs assessment to surface the gaps your program can fill.',
         blocks: [
           {
+            type: 'needsAssessment',
+          },
+          {
             type: 'checklist',
             heading: 'Key action items',
             items: [

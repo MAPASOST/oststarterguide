@@ -1,0 +1,539 @@
+/* ─────────────────────────────────────────────────────────
+   Outer layout
+───────────────────────────────────────────────────────── */
+
+.builder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Wizard card
+───────────────────────────────────────────────────────── */
+
+.wizardCard {
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  background: var(--color-surface);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Step indicator
+───────────────────────────────────────────────────────── */
+
+.stepIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: var(--space-6);
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.stepDot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: var(--stone-100);
+  color: var(--stone-500);
+  border: 2px solid var(--stone-200);
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.stepDotActive {
+  background: var(--blue-600);
+  border-color: var(--blue-600);
+  color: #fff;
+}
+
+.stepDotDone {
+  background: var(--green-600);
+  border-color: var(--green-600);
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.stepLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--stone-400);
+  white-space: nowrap;
+}
+
+.stepLabelActive {
+  color: var(--blue-700);
+  font-weight: 700;
+}
+
+.stepLine {
+  flex: 1;
+  height: 2px;
+  background: var(--stone-200);
+  margin: 0 var(--space-2);
+  min-width: 20px;
+  transition: background 0.2s;
+}
+
+.stepLineDone { background: var(--green-400); }
+
+/* ─────────────────────────────────────────────────────────
+   Step heading
+───────────────────────────────────────────────────────── */
+
+.stepHeading {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--stone-900);
+  margin-bottom: var(--space-1);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Step pane shared
+───────────────────────────────────────────────────────── */
+
+.stepPane { min-height: 200px; }
+
+.stepHint {
+  font-size: 0.875rem;
+  color: var(--stone-500);
+  margin-bottom: var(--space-4);
+  line-height: 1.5;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Step 1 — Audience cards
+───────────────────────────────────────────────────────── */
+
+.audienceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.audienceCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--stone-200);
+  background: var(--stone-50);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+
+.audienceCard:hover {
+  border-color: var(--blue-300);
+  background: var(--blue-50);
+}
+
+.audienceCardActive {
+  border-color: var(--blue-500);
+  background: var(--blue-50);
+  box-shadow: 0 0 0 3px var(--blue-100);
+}
+
+.cardIcon { font-size: 1.75rem; line-height: 1; margin-bottom: 4px; }
+
+.cardLabel {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--stone-800);
+}
+
+.cardDesc {
+  font-size: 0.8125rem;
+  color: var(--stone-500);
+  line-height: 1.4;
+}
+
+.selectedBadge {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--blue-600);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Step 2 — Need area cards
+───────────────────────────────────────────────────────── */
+
+.needGroup { margin-bottom: var(--space-5); }
+.needGroup:last-child { margin-bottom: 0; }
+
+.groupLabel {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--stone-700);
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.needGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+.needCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--stone-200);
+  background: var(--stone-50);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.14s, background 0.14s;
+}
+
+.needCard:hover {
+  border-color: var(--blue-300);
+  background: var(--blue-50);
+}
+
+.needCardActive {
+  border-color: var(--blue-500);
+  background: var(--blue-50);
+}
+
+.needIcon { font-size: 1.25rem; line-height: 1; margin-bottom: 2px; }
+
+.needLabel {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--stone-800);
+  line-height: 1.3;
+}
+
+.needDesc {
+  font-size: 0.75rem;
+  color: var(--stone-500);
+  line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Step 3 — Data sources
+───────────────────────────────────────────────────────── */
+
+.sourceGroups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.sourceGroup {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.sourceGroupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--stone-50);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sourceGroupHeader .groupLabel { margin-bottom: 0; }
+
+.needTagInline {
+  color: var(--blue-700);
+  font-weight: 700;
+}
+
+.toggleAllBtn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--blue-600);
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 2px 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.toggleAllBtn:hover { color: var(--blue-800); }
+
+.sourceList {
+  list-style: none;
+  padding: var(--space-2) 0;
+  margin: 0;
+}
+
+.sourceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: 6px var(--space-4);
+  font-size: 0.875rem;
+  color: var(--stone-700);
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.sourceItem:hover { background: var(--stone-50); }
+
+.checkbox {
+  accent-color: var(--blue-600);
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Navigation row
+───────────────────────────────────────────────────────── */
+
+.navRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1.5px solid var(--color-border);
+  gap: var(--space-3);
+}
+
+.btnBack {
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: var(--stone-100);
+  color: var(--stone-700);
+  border: 1.5px solid var(--stone-200);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.btnBack:hover { background: var(--stone-200); }
+
+.btnNext {
+  padding: 8px 22px;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  background: var(--blue-600);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.12s, opacity 0.12s;
+}
+
+.btnNext:hover:not(:disabled) { background: var(--blue-700); }
+.btnNext:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.completeNote {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--green-700);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Assessment table
+───────────────────────────────────────────────────────── */
+
+.tableSection {
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1.5px solid var(--color-border);
+  background: var(--stone-50);
+}
+
+.tableTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--stone-600);
+}
+
+.exportButtons {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.btnCopy {
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: var(--stone-800);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.14s;
+  white-space: nowrap;
+}
+
+.btnCopy:hover { background: var(--stone-900); }
+
+.btnPrint {
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: var(--color-surface);
+  color: var(--blue-700);
+  border: 1.5px solid var(--blue-300);
+  cursor: pointer;
+  transition: background 0.14s, border-color 0.14s;
+  white-space: nowrap;
+}
+
+.btnPrint:hover { background: var(--blue-50); border-color: var(--blue-400); }
+
+/* ── Table ── */
+.tableScroll { overflow-x: auto; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table thead tr {
+  background: var(--blue-900);
+  color: #fff;
+}
+
+.table thead th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.table thead th:first-child { width: 15%; }
+.table thead th:nth-child(2) { width: 22%; }
+
+.table tbody tr { transition: background 0.1s; }
+.table tbody tr:nth-child(even) { background: var(--blue-50); }
+.table tbody tr:hover { background: var(--blue-100); }
+
+.table tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--stone-200);
+  vertical-align: top;
+  line-height: 1.5;
+  color: var(--stone-700);
+}
+
+.tdAudience { font-weight: 600; color: var(--stone-800); white-space: nowrap; }
+.tdNeed { color: var(--blue-700); font-weight: 600; }
+
+.sourceUl {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sourceUl li {
+  padding-left: var(--space-3);
+  position: relative;
+  font-size: 0.8125rem;
+  color: var(--stone-600);
+  line-height: 1.5;
+}
+
+.sourceUl li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--blue-400);
+}
+
+.noSources { color: var(--stone-400); font-style: italic; }
+
+/* ── Empty state ── */
+.tableEmpty {
+  padding: var(--space-10) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  text-align: center;
+}
+
+.tableEmptyIcon { font-size: 2rem; opacity: 0.4; }
+
+.tableEmpty p {
+  font-size: 0.9375rem;
+  color: var(--stone-400);
+  max-width: 360px;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Responsive
+───────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .wizardCard { padding: var(--space-4); }
+
+  .audienceGrid { grid-template-columns: 1fr; }
+  .needGrid     { grid-template-columns: 1fr; }
+
+  .stepLabel { display: none; }
+  .stepLine  { min-width: 12px; }
+
+  .navRow { flex-wrap: wrap; }
+
+  .tableHeader { flex-direction: column; align-items: flex-start; }
+  .exportButtons { width: 100%; }
+  .btnCopy, .btnPrint { flex: 1; text-align: center; }
+}
