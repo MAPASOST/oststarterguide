@@ -1,0 +1,70 @@
+.phaseView { width: 100%; }
+
+/* ── Phase header ── */
+.phaseHeader {
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+.phaseHeaderInner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+.phaseIcon { font-size: 2.5rem; line-height: 1; flex-shrink: 0; }
+.phaseEyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 2px;
+}
+.phaseTitle { font-size: 2rem; font-weight: 800; line-height: 1.1; }
+.phaseTagline { font-size: 1rem; opacity: 0.8; margin-top: var(--space-1); }
+
+/* Color variants */
+.color-blue  { background: var(--blue-50);  color: var(--blue-900);  }
+.color-teal  { background: var(--teal-50);  color: var(--teal-900);  }
+.color-green { background: var(--green-50); color: var(--green-900); }
+
+/* ── Mobile section chip nav ── */
+.mobileSectionNav { display: none; }
+
+@media (max-width: 768px) {
+  .phaseHeader { border-radius: var(--radius-lg); padding: var(--space-5); margin-bottom: var(--space-5); }
+  .phaseIcon { font-size: 1.75rem; }
+  .phaseTitle { font-size: 1.5rem; }
+
+  .mobileSectionNav {
+    display: block;
+    margin-top: var(--space-5);
+  }
+  .mobileSectionList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .mobileSectionChip {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 4px var(--space-3);
+    border-radius: var(--radius-full);
+    background: rgba(255,255,255,0.5);
+    color: inherit;
+    border: 1px solid rgba(0,0,0,0.12);
+    transition: background 0.12s;
+    white-space: nowrap;
+  }
+  .mobileSectionChip:hover { background: rgba(255,255,255,0.75); }
+  .mobileSectionChipActive { background: rgba(255,255,255,0.85); font-weight: 700; border-color: rgba(0,0,0,0.2); }
+}
+
+/* ── Sections container ── */
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}

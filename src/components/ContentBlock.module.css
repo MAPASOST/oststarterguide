@@ -1,0 +1,171 @@
+/* ── Shared ── */
+.blockHeading {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--stone-700);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.unknown { color: var(--stone-400); font-style: italic; font-size: 0.875rem; }
+
+/* ── Text ── */
+.text {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--stone-700);
+}
+
+/* ── Tip ── */
+.tip {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid;
+}
+.tip-blue  { background: var(--blue-50);  border-color: var(--blue-400);  color: var(--blue-900);  }
+.tip-teal  { background: var(--teal-50);  border-color: var(--teal-500);  color: var(--teal-900);  }
+.tip-green { background: var(--green-50); border-color: var(--green-500); color: var(--green-900); }
+
+.tipHeading { font-weight: 700; font-size: 0.875rem; margin-bottom: var(--space-1); }
+.tipBody    { font-size: 0.9375rem; line-height: 1.65; }
+
+/* ── Callout ── */
+.callout {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+  border: 1px solid;
+}
+.callout-info    { background: var(--blue-50);  border-color: var(--blue-200);  color: var(--blue-900);  }
+.callout-warning { background: #fffbeb;          border-color: #fcd34d;          color: #78350f;          }
+.callout-success { background: var(--green-50); border-color: var(--green-200); color: var(--green-900); }
+
+.calloutHeading { font-weight: 700; font-size: 0.875rem; margin-bottom: var(--space-1); }
+.calloutBody    { font-size: 0.9375rem; line-height: 1.65; }
+
+/* ── List ── */
+.listBlock { display: flex; flex-direction: column; gap: 6px; }
+.list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.listItem {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--stone-700);
+  padding-left: var(--space-5);
+  position: relative;
+}
+.listItem::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.list-blue  .listItem::before { background: var(--blue-500);  }
+.list-teal  .listItem::before { background: var(--teal-500);  }
+.list-green .listItem::before { background: var(--green-500); }
+
+/* ── Checklist ── */
+.checklist {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--stone-700);
+}
+.checkBox {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-sm);
+  border: 2px solid;
+  margin-top: 1px;
+}
+.check-blue  .checkBox { border-color: var(--blue-400);  }
+.check-teal  .checkBox { border-color: var(--teal-500);  }
+.check-green .checkBox { border-color: var(--green-500); }
+
+/* ── Resource ── */
+.resourceBlock { display: flex; flex-direction: column; gap: 6px; }
+.resourceList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.resourceItem {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-size: 0.9375rem;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--stone-50);
+  border: 1px solid var(--color-border);
+}
+.resourceLink {
+  font-weight: 600;
+  text-decoration: none;
+}
+.resource-blue  .resourceLink { color: var(--blue-600);  }
+.resource-teal  .resourceLink { color: var(--teal-600);  }
+.resource-green .resourceLink { color: var(--green-600); }
+.resourceLink:hover { text-decoration: underline; }
+.resourceNote {
+  font-size: 0.8125rem;
+  color: var(--stone-500);
+}
+
+/* ── Steps ── */
+.stepsBlock { display: flex; flex-direction: column; gap: 6px; }
+.stepsList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+.stepNumber {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: white;
+}
+.step-blue  .stepNumber { background: var(--blue-600);  }
+.step-teal  .stepNumber { background: var(--teal-600);  }
+.step-green .stepNumber { background: var(--green-600); }
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 4px;
+}
+.stepLabel  { font-size: 0.9375rem; font-weight: 600; color: var(--stone-800); line-height: 1.4; }
+.stepDetail { font-size: 0.875rem;  color: var(--stone-500); line-height: 1.5; }
