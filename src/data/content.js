@@ -1042,6 +1042,9 @@ export const phases = [
           'Strategic planning is how organizations set direction, allocate resources intentionally, and stay agile when circumstances change. According to evaluation experts, strategic plans are "ways of thinking, acting, and pivoting over time in a desired direction." A strong plan is built collaboratively, grounded in your mission and evaluation data, informed by a clear-eyed SWOT analysis, and revisited regularly. Think of it as a living tool — not a document you finalize and file.',
         blocks: [
           {
+            type: 'planningTimeline',
+          },
+          {
             type: 'checklist',
             heading: 'Key action items',
             items: [

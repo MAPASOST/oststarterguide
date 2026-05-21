@@ -1,5 +1,6 @@
 import FundingExplorer from './FundingExplorer'
 import NeedsAssessmentBuilder from './NeedsAssessmentBuilder'
+import PlanningTimeline from './PlanningTimeline'
 import styles from './ContentBlock.module.css'
 
 /**
@@ -40,6 +41,9 @@ export default function ContentBlock({ block, colorKey }) {
 
     case 'needsAssessment':
       return <NeedsAssessmentBuilder />
+
+    case 'planningTimeline':
+      return <PlanningTimeline />
 
     default:
       return (
