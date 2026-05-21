@@ -1,3 +1,4 @@
+import FundingExplorer from './FundingExplorer'
 import styles from './ContentBlock.module.css'
 
 /**
@@ -32,6 +33,9 @@ export default function ContentBlock({ block, colorKey }) {
 
     case 'steps':
       return <StepsBlock block={block} colorKey={colorKey} />
+
+    case 'fundingExplorer':
+      return <FundingExplorer />
 
     default:
       return (

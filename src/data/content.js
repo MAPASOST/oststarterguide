@@ -230,6 +230,9 @@ export const phases = [
           'Successful afterschool programs rely on a "braided" approach that weaves together multiple funding sources — public grants, fee-for-service revenue, local business sponsorships, foundation grants, and individual donations. The process of securing funding should begin early. Before making any ask, be clear about how much you need, exactly what it will fund, and how you will demonstrate results to supporters. Plan your revenue and expenses at least two to three years out to identify potential shortfalls before they become crises.',
         blocks: [
           {
+            type: 'fundingExplorer',
+          },
+          {
             type: 'checklist',
             heading: 'Key action items',
             items: [

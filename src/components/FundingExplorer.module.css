@@ -1,0 +1,356 @@
+/* ── Category color tokens (scoped per card/button) ── */
+.cat-grants         { --fc-accent: var(--blue-600);  --fc-mid: var(--blue-100);  --fc-light: var(--blue-50);  --fc-text: var(--blue-700);  --fc-ring: var(--blue-200);  }
+.cat-earned-revenue { --fc-accent: var(--teal-600);  --fc-mid: var(--teal-100);  --fc-light: var(--teal-50);  --fc-text: var(--teal-700);  --fc-ring: var(--teal-200);  }
+.cat-fundraising    { --fc-accent: var(--green-600); --fc-mid: var(--green-100); --fc-light: var(--green-50); --fc-text: var(--green-700); --fc-ring: var(--green-200); }
+
+/* ──────────────────────────────────────────────────────
+   Explorer shell
+────────────────────────────────────────────────────── */
+
+.explorer {
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  background: var(--color-surface);
+}
+
+.explorerHead { margin-bottom: var(--space-5); }
+
+.explorerTitle {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--stone-900);
+  margin-bottom: var(--space-1);
+}
+
+.explorerSubtitle {
+  font-size: 0.875rem;
+  color: var(--stone-500);
+  line-height: 1.5;
+}
+
+/* ──────────────────────────────────────────────────────
+   Filter bar
+────────────────────────────────────────────────────── */
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-4);
+  border-bottom: 1.5px solid var(--color-border);
+}
+
+/* ── Category pills ── */
+.categoryPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  flex: 1 1 auto;
+}
+
+.catBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 1.5px solid var(--stone-200);
+  background: var(--stone-50);
+  color: var(--stone-600);
+  cursor: pointer;
+  transition: background 0.14s, color 0.14s, border-color 0.14s;
+  white-space: nowrap;
+}
+
+.catBtn:hover:not(.catBtnActive) {
+  background: var(--stone-100);
+  border-color: var(--stone-300);
+  color: var(--stone-800);
+}
+
+/* Active "All" button */
+.catBtnActive {
+  background: var(--stone-800);
+  border-color: var(--stone-800);
+  color: #fff;
+}
+
+/* Active category-specific buttons override the generic active */
+.catBtnActive.cat-grants         { background: var(--blue-600);  border-color: var(--blue-600);  color: #fff; }
+.catBtnActive.cat-earned-revenue { background: var(--teal-600);  border-color: var(--teal-600);  color: #fff; }
+.catBtnActive.cat-fundraising    { background: var(--green-600); border-color: var(--green-600); color: #fff; }
+
+.catBtnIcon { font-size: 0.875rem; line-height: 1; }
+
+/* ── Stage toggle ── */
+.stageToggle {
+  display: flex;
+  border: 1.5px solid var(--stone-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background: var(--stone-50);
+  flex-shrink: 0;
+}
+
+.stageBtn {
+  padding: 6px 16px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--stone-500);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.14s, color 0.14s;
+  white-space: nowrap;
+}
+
+.stageBtn:hover:not(.stageBtnActive) {
+  background: var(--stone-100);
+  color: var(--stone-700);
+}
+
+.stageBtnActive {
+  background: var(--stone-800);
+  color: #fff;
+  border-radius: var(--radius-full);
+}
+
+/* ──────────────────────────────────────────────────────
+   Result count
+────────────────────────────────────────────────────── */
+
+.resultCount {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--stone-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-4);
+}
+
+/* ──────────────────────────────────────────────────────
+   Card grid
+────────────────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+/* ──────────────────────────────────────────────────────
+   Card
+────────────────────────────────────────────────────── */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-top: 3px solid var(--fc-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* ── Meta row ── */
+.cardMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+/* Category badge */
+.catBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+.catBadge-grants         { background: var(--blue-100);  color: var(--blue-700);  }
+.catBadge-earned-revenue { background: var(--teal-100);  color: var(--teal-700);  }
+.catBadge-fundraising    { background: var(--green-100); color: var(--green-700); }
+
+/* Level badge */
+.levelBadge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--stone-100);
+  color: var(--stone-600);
+}
+
+/* Stage pills */
+.stagePills {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.stagePill {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background: var(--fc-light);
+  color: var(--fc-text);
+  border: 1px solid var(--fc-ring);
+}
+
+/* ── Title ── */
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--stone-900);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.cardAlias {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--fc-text);
+  margin-bottom: var(--space-3);
+}
+
+/* ── Description ── */
+.cardDesc {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--stone-600);
+  margin-bottom: var(--space-4);
+  flex: 1;
+}
+
+/* ── Pros / Cons ── */
+.prosConsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.prosConsLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-2);
+}
+
+.prosIcon { color: var(--green-600); }
+.consIcon { color: #d97706; }
+
+.prosCol .prosConsLabel { color: var(--green-700); }
+.consCol .prosConsLabel { color: #b45309; }
+
+.prosList,
+.consList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.prosList li,
+.consList li {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--stone-600);
+  padding-left: var(--space-3);
+  position: relative;
+}
+
+.prosList li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-400);
+}
+
+.consList li::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 0.45em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fbbf24;
+}
+
+/* ── Card footer ── */
+.cardFooter {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.learnMore {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--fc-text);
+  text-decoration: none;
+  transition: color 0.14s;
+}
+
+.learnMore:hover { text-decoration: underline; }
+
+/* ──────────────────────────────────────────────────────
+   Empty state
+────────────────────────────────────────────────────── */
+
+.empty {
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+}
+
+.emptyText {
+  font-size: 0.9375rem;
+  color: var(--stone-500);
+  line-height: 1.6;
+}
+
+/* ──────────────────────────────────────────────────────
+   Responsive
+────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+
+  .prosConsRow {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 768px) {
+  .explorer { padding: var(--space-4); }
+
+  .filterBar { gap: var(--space-2); }
+
+  .stageToggle { width: 100%; }
+  .stageBtn    { flex: 1; justify-content: center; text-align: center; }
+}
