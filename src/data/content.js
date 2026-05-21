@@ -128,6 +128,18 @@ export const phases = [
             ],
           },
           {
+            type: 'ruralCallout',
+            heading: 'Building partnerships when formal nonprofits are scarce',
+            body: 'In rural areas, community anchors like churches, farm co-ops, and county extension offices often play the role that established nonprofits fill in urban settings. Start with the relationships you already have — rural networks are tight and trust travels fast.',
+            tips: [
+              'Churches and faith communities frequently have space, volunteers, and trusted relationships with families across the county',
+              'County extension offices and 4-H programs are natural partners — they already work with rural youth and families',
+              'Local agricultural businesses, farm co-ops, and rural electric cooperatives often invest in community programs',
+              'Farm bureaus, community banks, and local chambers of commerce may not be "nonprofits" but can provide significant in-kind and financial support',
+              'A strong MOU is even more important in informal settings — put space, schedule, and responsibility in writing from the start',
+            ],
+          },
+          {
             type: 'list',
             heading: 'Consider these questions',
             items: [
@@ -248,6 +260,18 @@ export const phases = [
               'Consider a fiscal sponsor with 501(c)(3) status to manage finances and access grants in the early stages',
               'Designate someone to grant writing and seek training if needed; build in a 10% line item for evaluation costs',
               'Develop a 3–5 year financial sustainability plan distinguishing renewable from time-limited funding',
+            ],
+          },
+          {
+            type: 'ruralCallout',
+            heading: 'Funding streams designed for rural communities',
+            body: 'Rural programs face unique funding challenges — but also have access to grants specifically designed for rural areas that urban programs cannot tap. Combine these with standard afterschool funding streams for a stronger braided budget.',
+            tips: [
+              'USDA Rural Development offers Community Facilities grants and loans for organizations serving rural areas — including afterschool programs',
+              'Many states set aside 21st CCLC funding specifically for rural or small-district applicants; ask your State Afterschool Network',
+              'Community foundations serving rural counties are often the most accessible local funder for new programs',
+              'Fiscal sponsorship is especially valuable in rural areas where nonprofit infrastructure is thin — it lets you access grants immediately',
+              'Rural electric cooperatives, community development financial institutions (CDFIs), and USDA Community Connect grants are underused rural funding sources',
             ],
           },
           {
@@ -570,6 +594,18 @@ export const phases = [
             ],
           },
           {
+            type: 'ruralCallout',
+            heading: 'Staffing strategies for rural labor markets',
+            body: 'Rural labor markets are small and competition for qualified staff is high. Creative staffing strategies that tap into existing community relationships — including older youth — can help you build a strong, sustainable team.',
+            tips: [
+              'Hire high school students as paid junior staff, tutors, or activity leads — it builds their skills, builds your team, and makes younger youth look up to them',
+              'Recruit community members with specific skills: coaches, artists, farmers, tradespeople, and retired teachers are valuable program staff',
+              'Partner with community colleges and universities for paid practicum students, interns, and student teachers',
+              'Offer flexible, part-time scheduling to attract parents, caregivers, and community volunteers who want to contribute but can\'t work full time',
+              'Invest in a volunteer-to-staff pipeline: start promising volunteers in unpaid roles and convert strong performers to paid positions over time',
+            ],
+          },
+          {
             type: 'list',
             heading: 'Consider these questions',
             items: [
@@ -630,6 +666,18 @@ export const phases = [
               'If renting or sharing space, draft a written agreement defining usage days and times, off-limits areas, damage protocols, and compensation',
               'Consider renting on a trial basis before committing to a long-term lease or purchase',
               'Identify whether furniture, equipment, and technology are included in any space agreement, and plan for gaps',
+            ],
+          },
+          {
+            type: 'ruralCallout',
+            heading: 'Making shared spaces work in rural settings',
+            body: 'Purpose-built facilities are rare in rural areas. Shared-space arrangements with churches, county fairgrounds, schools, and community halls can work beautifully — if the terms are in writing from day one.',
+            tips: [
+              'Draft a detailed shared-space usage contract covering days/times, which areas are accessible, cleanup expectations, damage protocols, and any compensation',
+              'Churches, county fairgrounds, 4-H club buildings, VFW halls, and fire stations are common and underused rural program spaces',
+              'School facilities may be available after hours — formalize access through a district MOU and clarify who holds keys and carries liability',
+              'Consider rotating sites across the geographic area to reach youth in different communities and reduce transportation burden',
+              'A mobile model — where the program travels to participants rather than a fixed site — may be viable in very dispersed rural settings',
             ],
           },
           {
@@ -748,6 +796,18 @@ export const phases = [
               'Verify all drivers have valid licenses, current background checks, and required safety equipment (e.g., car seats where applicable)',
               'Establish a written protocol for late pick-up, including how long youth will be supervised and how families will be notified',
               'For field trips: create a formal field trip plan, send permission slips in advance, and communicate details to school staff',
+            ],
+          },
+          {
+            type: 'ruralCallout',
+            heading: 'Solving transportation in rural communities',
+            body: 'Distance and the absence of public transit are the top participation barriers in rural programs. Creative vehicle-sharing and community-coordination strategies can close the gap without a large budget.',
+            tips: [
+              'Negotiate with the school district to extend existing bus routes or add a dedicated afterschool bus run — many districts are open to it when asked directly',
+              'Explore vehicle-sharing agreements with churches, community centers, fire departments, and local businesses that have vans or buses sitting idle in the afternoon',
+              'Apply for USDA Rural Development, TANF, or state rural transportation grants specifically earmarked for community mobility',
+              'Organize a structured parent carpool pool with a shared sign-up sheet, rotating driver schedule, and a simple liability waiver',
+              'Use a "walking school bus" model for youth within safe walking distance — a staff-escorted group walk that also builds community visibility',
             ],
           },
           {

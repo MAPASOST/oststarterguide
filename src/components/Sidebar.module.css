@@ -97,6 +97,85 @@
 .sectionButtonActive.color-teal  { border-left-color: var(--teal-500);  background: var(--teal-50);  color: var(--teal-700);  font-weight: 600; }
 .sectionButtonActive.color-green { border-left-color: var(--green-500); background: var(--green-50); color: var(--green-700); font-weight: 600; }
 
+/* ── Settings panel ── */
+.settings {
+  flex-shrink: 0;
+  padding: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  background: var(--stone-50);
+}
+
+.settingsLabel {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--stone-400);
+  margin-bottom: var(--space-3);
+}
+
+.ruralToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ruralToggleText {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--stone-700);
+  line-height: 1.3;
+}
+
+.ruralIcon { font-size: 1rem; flex-shrink: 0; }
+
+/* Toggle pill */
+.toggleTrack {
+  flex-shrink: 0;
+  width: 36px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--stone-300);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.toggleTrackOn { background: var(--amber-500); }
+
+.toggleThumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.toggleThumbOn { transform: translateX(16px); }
+
+.ruralHint {
+  font-size: 0.75rem;
+  color: var(--amber-700);
+  line-height: 1.45;
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--amber-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--amber-200);
+}
+
 /* ── Hide on mobile ── */
 @media (max-width: 768px) {
   .sidebar { display: none; }

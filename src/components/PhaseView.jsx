@@ -1,5 +1,6 @@
 import TopicSection from './TopicSection'
 import Checklist from './Checklist'
+import { useRuralMode } from '../context/RuralModeContext'
 import styles from './PhaseView.module.css'
 
 /**
@@ -11,6 +12,7 @@ import styles from './PhaseView.module.css'
  *   onSelectSection (id) => void
  */
 export default function PhaseView({ phase, activeSectionId, onSelectSection }) {
+  const { ruralMode, toggleRuralMode } = useRuralMode()
   return (
     <div className={styles.phaseView}>
       {/* ── Phase header ── */}
@@ -22,6 +24,20 @@ export default function PhaseView({ phase, activeSectionId, onSelectSection }) {
             <h1 className={styles.phaseTitle}>{phase.label}</h1>
             <p className={styles.phaseTagline}>{phase.tagline}</p>
           </div>
+        </div>
+
+        {/* ── Mobile rural mode toggle ── */}
+        <div className={styles.mobileRuralRow}>
+          <button
+            role="switch"
+            aria-checked={ruralMode}
+            className={[styles.mobileRuralBtn, ruralMode ? styles.mobileRuralBtnOn : ''].join(' ')}
+            onClick={toggleRuralMode}
+          >
+            <span aria-hidden="true">🌾</span>
+            <span>{ruralMode ? 'Rural tips: on' : 'Rural tips: off'}</span>
+            <span className={[styles.mobilePill, ruralMode ? styles.mobilePillOn : ''].join(' ')} />
+          </button>
         </div>
 
         {/* ── Mobile in-phase section list ── */}

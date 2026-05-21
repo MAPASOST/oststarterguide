@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { phases } from './data/content'
+import { RuralModeProvider } from './context/RuralModeContext'
 import Layout from './components/Layout'
 import PhaseView from './components/PhaseView'
 
@@ -26,6 +27,7 @@ export default function App() {
   }, [])
 
   return (
+    <RuralModeProvider>
     <Layout
       phases={phases}
       activePhaseId={activePhaseId}
@@ -41,5 +43,6 @@ export default function App() {
         />
       )}
     </Layout>
+    </RuralModeProvider>
   )
 }

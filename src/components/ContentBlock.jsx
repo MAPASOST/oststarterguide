@@ -1,6 +1,7 @@
 import FundingExplorer from './FundingExplorer'
 import NeedsAssessmentBuilder from './NeedsAssessmentBuilder'
 import PlanningTimeline from './PlanningTimeline'
+import RuralCallout from './RuralCallout'
 import styles from './ContentBlock.module.css'
 
 /**
@@ -44,6 +45,9 @@ export default function ContentBlock({ block, colorKey }) {
 
     case 'planningTimeline':
       return <PlanningTimeline />
+
+    case 'ruralCallout':
+      return <RuralCallout heading={block.heading} body={block.body} tips={block.tips} />
 
     default:
       return (

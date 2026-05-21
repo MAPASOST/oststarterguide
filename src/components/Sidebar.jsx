@@ -1,3 +1,4 @@
+import { useRuralMode } from '../context/RuralModeContext'
 import styles from './Sidebar.module.css'
 
 /**
@@ -19,6 +20,8 @@ export default function Sidebar({
   onSelectPhase,
   onSelectSection,
 }) {
+  const { ruralMode, toggleRuralMode } = useRuralMode()
+
   return (
     <nav className={styles.sidebar} aria-label="Guide navigation">
       <div className={styles.logo}>
@@ -68,6 +71,31 @@ export default function Sidebar({
           )
         })}
       </ul>
+
+      {/* ── Settings ── */}
+      <div className={styles.settings}>
+        <p className={styles.settingsLabel}>Settings</p>
+        <label className={styles.ruralToggle}>
+          <span className={styles.ruralToggleText}>
+            <span className={styles.ruralIcon} aria-hidden="true">🌾</span>
+            <span>Rural community mode</span>
+          </span>
+          <button
+            role="switch"
+            aria-checked={ruralMode}
+            className={[styles.toggleTrack, ruralMode ? styles.toggleTrackOn : ''].join(' ')}
+            onClick={toggleRuralMode}
+            aria-label="Toggle rural community tips"
+          >
+            <span className={[styles.toggleThumb, ruralMode ? styles.toggleThumbOn : ''].join(' ')} />
+          </button>
+        </label>
+        {ruralMode && (
+          <p className={styles.ruralHint}>
+            Rural-specific tips are now visible throughout the guide.
+          </p>
+        )}
+      </div>
     </nav>
   )
 }

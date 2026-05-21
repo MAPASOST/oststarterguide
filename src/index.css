@@ -37,6 +37,16 @@
   --stone-700: #44403c;
   --stone-900: #1c1917;
 
+  /* Amber — rural callout accent */
+  --amber-50:  #fffbeb;
+  --amber-100: #fef3c7;
+  --amber-200: #fde68a;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+  --amber-700: #b45309;
+  --amber-900: #78350f;
+
   /* Semantic */
   --color-bg:           var(--stone-50);
   --color-surface:      #ffffff;

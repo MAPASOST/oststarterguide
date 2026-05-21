@@ -28,6 +28,9 @@
 .color-teal  { background: var(--teal-50);  color: var(--teal-900);  }
 .color-green { background: var(--green-50); color: var(--green-900); }
 
+/* ── Mobile rural toggle ── */
+.mobileRuralRow { display: none; }
+
 /* ── Mobile section chip nav ── */
 .mobileSectionNav { display: none; }
 
@@ -35,6 +38,62 @@
   .phaseHeader { border-radius: var(--radius-lg); padding: var(--space-5); margin-bottom: var(--space-5); }
   .phaseIcon { font-size: 1.75rem; }
   .phaseTitle { font-size: 1.5rem; }
+
+  /* Rural toggle */
+  .mobileRuralRow {
+    display: flex;
+    margin-top: var(--space-4);
+  }
+
+  .mobileRuralBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 5px 12px 5px 10px;
+    border-radius: var(--radius-full);
+    background: rgba(255,255,255,0.3);
+    color: inherit;
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .mobileRuralBtn:hover { background: rgba(255,255,255,0.45); }
+
+  .mobileRuralBtnOn {
+    background: rgba(245,158,11,0.25);
+    border-color: rgba(245,158,11,0.5);
+  }
+
+  /* Tiny inline pill indicator */
+  .mobilePill {
+    width: 24px;
+    height: 13px;
+    border-radius: var(--radius-full);
+    background: rgba(255,255,255,0.4);
+    position: relative;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .mobilePill::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    transition: transform 0.2s;
+  }
+  .mobilePillOn {
+    background: var(--amber-500);
+  }
+  .mobilePillOn::after {
+    transform: translateX(11px);
+  }
 
   .mobileSectionNav {
     display: block;
