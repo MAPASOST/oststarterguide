@@ -10,7 +10,7 @@
  *
  * SCHEMA
  * ──────
- * Phase  { id, label, tagline, colorKey, icon, sections[] }
+ * Phase  { id, label, tagline, colorKey, icon, sections[], progressCheck? }
  * Section { id, title, intro, blocks[] }
  * Block   — checklist | list | resource  (see types below)
  *
@@ -30,6 +30,15 @@ export const phases = [
     tagline: 'Know the basics before you start programming',
     colorKey: 'blue',
     icon: '🎓',
+    progressCheck: {
+      title: 'Phase Milestones',
+      items: [
+        'Hosted a listening session or focus group with community members',
+        'Completed a written needs assessment',
+        'Met with at least two potential partner organizations',
+        'Drafted a mission and values statement',
+      ],
+    },
     sections: [
 
       /* ── 1. Community Outreach & Needs Assessment ────────── */
@@ -342,6 +351,17 @@ export const phases = [
     tagline: 'Develop your program design and practices',
     colorKey: 'teal',
     icon: '📋',
+    progressCheck: {
+      title: 'Phase Milestones',
+      items: [
+        'Program design and daily schedule determined',
+        'Key staff identified and background checks completed',
+        'Safe, licensed location secured',
+        'Policies and procedures handbook written',
+        'Recruitment strategy developed',
+        'Evaluation plan established',
+      ],
+    },
     sections: [
 
       /* ── 1. Program Design & Schedule ────────────────────── */

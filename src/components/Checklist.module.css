@@ -1,0 +1,190 @@
+/* ── Color-scoped custom properties ── */
+.color-blue  {
+  --ck-base:  var(--blue-600);
+  --ck-mid:   var(--blue-100);
+  --ck-light: var(--blue-50);
+  --ck-ring:  var(--blue-200);
+  --ck-text:  var(--blue-700);
+}
+.color-teal  {
+  --ck-base:  var(--teal-600);
+  --ck-mid:   var(--teal-100);
+  --ck-light: var(--teal-50);
+  --ck-ring:  var(--teal-200);
+  --ck-text:  var(--teal-700);
+}
+.color-green {
+  --ck-base:  var(--green-600);
+  --ck-mid:   var(--green-100);
+  --ck-light: var(--green-50);
+  --ck-ring:  var(--green-200);
+  --ck-text:  var(--green-700);
+}
+
+/* ── Wrapper ── */
+.wrapper {
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--color-border);
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-surface);
+  transition:
+    border-color 0.35s ease,
+    background   0.35s ease,
+    box-shadow   0.35s ease;
+  margin-bottom: var(--space-8);
+}
+
+/* ── Complete state ── */
+.complete {
+  border-color: var(--ck-ring);
+  background: var(--ck-light);
+  box-shadow: 0 0 0 4px var(--ck-mid);
+  animation: completePulse 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes completePulse {
+  0%   { box-shadow: 0 0 0 0   transparent; }
+  40%  { box-shadow: 0 0 0 8px var(--ck-mid); }
+  100% { box-shadow: 0 0 0 4px var(--ck-mid); }
+}
+
+/* ── Celebration banner ── */
+.celebration {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--ck-text);
+  background: var(--ck-mid);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+  animation: bannerEntrance 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes bannerEntrance {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+.celebrationIcon { font-size: 1.25rem; line-height: 1; flex-shrink: 0; }
+
+/* ── Header row ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--stone-600);
+}
+
+.pctBadge {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ck-text);
+  background: var(--ck-mid);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  min-width: 44px;
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ── Progress bar ── */
+.progressTrack {
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--stone-100);
+  overflow: hidden;
+  margin-bottom: var(--space-5);
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--ck-base);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── List ── */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ── Item button ── */
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 100%;
+  text-align: left;
+  padding: var(--space-2) var(--space-2);
+  border-radius: var(--radius-md);
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.item:hover         { background: var(--stone-100); }
+.itemChecked:hover  { background: var(--ck-mid);    }
+
+/* ── Checkbox square ── */
+.checkbox {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--stone-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  color: white;
+  transition: background 0.18s, border-color 0.18s;
+}
+
+.itemChecked .checkbox {
+  background: var(--ck-base);
+  border-color: var(--ck-base);
+}
+
+.checkIcon {
+  width: 12px;
+  height: 9px;
+  display: block;
+}
+
+/* ── Label ── */
+.label {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--stone-700);
+  transition: color 0.18s;
+}
+
+.itemChecked .label {
+  text-decoration: line-through;
+  color: var(--stone-400);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .wrapper { padding: var(--space-4) var(--space-4); }
+}

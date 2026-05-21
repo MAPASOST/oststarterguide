@@ -1,4 +1,5 @@
 import TopicSection from './TopicSection'
+import Checklist from './Checklist'
 import styles from './PhaseView.module.css'
 
 /**
@@ -42,6 +43,15 @@ export default function PhaseView({ phase, activeSectionId, onSelectSection }) {
           </nav>
         )}
       </header>
+
+      {/* ── Phase milestone checklist ── */}
+      {phase.progressCheck && (
+        <Checklist
+          title={phase.progressCheck.title}
+          items={phase.progressCheck.items}
+          colorKey={phase.colorKey}
+        />
+      )}
 
       {/* ── Sections ── */}
       <div className={styles.sections}>
