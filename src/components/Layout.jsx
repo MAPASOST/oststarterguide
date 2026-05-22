@@ -16,8 +16,10 @@ export default function Layout({
   phases,
   activePhaseId,
   activeSectionId,
+  activeView,
   onSelectPhase,
   onSelectSection,
+  onSelectResources,
   children,
 }) {
   return (
@@ -26,8 +28,10 @@ export default function Layout({
         phases={phases}
         activePhaseId={activePhaseId}
         activeSectionId={activeSectionId}
+        activeView={activeView}
         onSelectPhase={onSelectPhase}
         onSelectSection={onSelectSection}
+        onSelectResources={onSelectResources}
       />
 
       <div className={styles.body}>
@@ -39,7 +43,9 @@ export default function Layout({
       <TabBar
         phases={phases}
         activePhaseId={activePhaseId}
+        activeView={activeView}
         onSelectPhase={onSelectPhase}
+        onSelectResources={onSelectResources}
       />
     </div>
   )

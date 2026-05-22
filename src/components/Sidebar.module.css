@@ -97,6 +97,31 @@
 .sectionButtonActive.color-teal  { border-left-color: var(--teal-500);  background: var(--teal-50);  color: var(--teal-700);  font-weight: 600; }
 .sectionButtonActive.color-green { border-left-color: var(--green-500); background: var(--green-50); color: var(--green-700); font-weight: 600; }
 
+/* ── Resource Library link ── */
+.libraryLinkRow {
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+.libraryLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--stone-700);
+  transition: background 0.15s;
+}
+.libraryLink:hover { background: var(--stone-100); }
+.libraryLinkActive {
+  background: var(--stone-100);
+  color: var(--stone-900);
+}
+.libraryLinkIcon { font-size: 1rem; }
+
 /* ── Settings panel ── */
 .settings {
   flex-shrink: 0;

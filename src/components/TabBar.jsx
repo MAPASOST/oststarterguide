@@ -8,11 +8,11 @@ import styles from './TabBar.module.css'
  *   activePhaseId string
  *   onSelectPhase (id) => void
  */
-export default function TabBar({ phases, activePhaseId, onSelectPhase }) {
+export default function TabBar({ phases, activePhaseId, activeView, onSelectPhase, onSelectResources }) {
   return (
-    <nav className={styles.tabBar} aria-label="Phase navigation">
+    <nav className={styles.tabBar} aria-label="Guide navigation">
       {phases.map((phase) => {
-        const isActive = phase.id === activePhaseId
+        const isActive = activeView === 'phases' && phase.id === activePhaseId
         return (
           <button
             key={phase.id}
@@ -25,6 +25,14 @@ export default function TabBar({ phases, activePhaseId, onSelectPhase }) {
           </button>
         )
       })}
+      <button
+        className={`${styles.tab} ${activeView === 'resources' ? styles.tabActiveLibrary : ''}`}
+        onClick={onSelectResources}
+        aria-current={activeView === 'resources' ? 'page' : undefined}
+      >
+        <span className={styles.tabIcon} aria-hidden="true">📚</span>
+        <span className={styles.tabLabel}>Library</span>
+      </button>
     </nav>
   )
 }

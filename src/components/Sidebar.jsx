@@ -17,8 +17,10 @@ export default function Sidebar({
   phases,
   activePhaseId,
   activeSectionId,
+  activeView,
   onSelectPhase,
   onSelectSection,
+  onSelectResources,
 }) {
   const { ruralMode, toggleRuralMode } = useRuralMode()
 
@@ -71,6 +73,18 @@ export default function Sidebar({
           )
         })}
       </ul>
+
+      {/* ── Resource Library link ── */}
+      <div className={styles.libraryLinkRow}>
+        <button
+          className={[styles.libraryLink, activeView === 'resources' ? styles.libraryLinkActive : ''].join(' ')}
+          onClick={onSelectResources}
+          aria-current={activeView === 'resources' ? 'page' : undefined}
+        >
+          <span className={styles.libraryLinkIcon} aria-hidden="true">📚</span>
+          <span>Resource Library</span>
+        </button>
+      </div>
 
       {/* ── Settings ── */}
       <div className={styles.settings}>

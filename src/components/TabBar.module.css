@@ -39,4 +39,5 @@
   .tabActive.color-blue  { color: var(--blue-600);  background: var(--blue-50);  }
   .tabActive.color-teal  { color: var(--teal-600);  background: var(--teal-50);  }
   .tabActive.color-green { color: var(--green-600); background: var(--green-50); }
+  .tabActiveLibrary { color: var(--stone-700); background: var(--stone-100); }
 }
