@@ -2,6 +2,7 @@ import FundingExplorer from './FundingExplorer'
 import NeedsAssessmentBuilder from './NeedsAssessmentBuilder'
 import PlanningTimeline from './PlanningTimeline'
 import RuralCallout from './RuralCallout'
+import { annotateText } from '../utils/glossary'
 import styles from './ContentBlock.module.css'
 
 /**
@@ -63,7 +64,7 @@ export default function ContentBlock({ block, colorKey }) {
 /* ─────────────────────────────────────────── */
 
 function TextBlock({ block }) {
-  return <p className={styles.text}>{block.body}</p>
+  return <p className={styles.text}>{annotateText(block.body)}</p>
 }
 
 function TipBlock({ block, colorKey }) {
@@ -91,7 +92,7 @@ function ListBlock({ block, colorKey }) {
       {block.heading && <p className={styles.blockHeading}>{block.heading}</p>}
       <ul className={`${styles.list} ${styles[`list-${colorKey}`]}`}>
         {block.items.map((item, i) => (
-          <li key={i} className={styles.listItem}>{item}</li>
+          <li key={i} className={styles.listItem}>{annotateText(item)}</li>
         ))}
       </ul>
     </div>
@@ -141,8 +142,8 @@ function StepsBlock({ block, colorKey }) {
           <li key={i} className={`${styles.step} ${styles[`step-${colorKey}`]}`}>
             <span className={styles.stepNumber}>{i + 1}</span>
             <div className={styles.stepContent}>
-              <span className={styles.stepLabel}>{step.label}</span>
-              {step.detail && <span className={styles.stepDetail}>{step.detail}</span>}
+              <span className={styles.stepLabel}>{annotateText(step.label)}</span>
+              {step.detail && <span className={styles.stepDetail}>{annotateText(step.detail)}</span>}
             </div>
           </li>
         ))}

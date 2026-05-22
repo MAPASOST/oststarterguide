@@ -2,16 +2,6 @@ import Sidebar from './Sidebar'
 import TabBar from './TabBar'
 import styles from './Layout.module.css'
 
-/**
- * Layout
- * Props:
- *   phases         Phase[]    – full phases array from content.js
- *   activePhaseId  string     – id of the currently active phase
- *   activeSectionId string    – id of the currently active section
- *   onSelectPhase  (id) => void
- *   onSelectSection (id) => void
- *   children       ReactNode  – the main content area
- */
 export default function Layout({
   phases,
   activePhaseId,
@@ -20,10 +10,14 @@ export default function Layout({
   onSelectPhase,
   onSelectSection,
   onSelectResources,
+  onSelectHero,
   children,
 }) {
   return (
     <div className={styles.root}>
+      {/* Skip-to-content link — visible only on keyboard focus */}
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+
       <Sidebar
         phases={phases}
         activePhaseId={activePhaseId}
@@ -32,10 +26,11 @@ export default function Layout({
         onSelectPhase={onSelectPhase}
         onSelectSection={onSelectSection}
         onSelectResources={onSelectResources}
+        onSelectHero={onSelectHero}
       />
 
-      <div className={styles.body}>
-        <main className={styles.main} id="main-content">
+      <div className={styles.body} data-content-body>
+        <main className={styles.main} id="main-content" tabIndex={-1}>
           {children}
         </main>
       </div>

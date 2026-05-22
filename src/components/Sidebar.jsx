@@ -1,18 +1,6 @@
 import { useRuralMode } from '../context/RuralModeContext'
 import styles from './Sidebar.module.css'
 
-/**
- * Sidebar — desktop-only left nav.
- * Shows all phases as collapsible groups; the active phase is expanded
- * and its sections are listed below it.
- *
- * Props:
- *   phases          Phase[]
- *   activePhaseId   string
- *   activeSectionId string
- *   onSelectPhase   (id) => void
- *   onSelectSection (id) => void
- */
 export default function Sidebar({
   phases,
   activePhaseId,
@@ -21,19 +9,28 @@ export default function Sidebar({
   onSelectPhase,
   onSelectSection,
   onSelectResources,
+  onSelectHero,
 }) {
   const { ruralMode, toggleRuralMode } = useRuralMode()
 
   return (
     <nav className={styles.sidebar} aria-label="Guide navigation">
-      <div className={styles.logo}>
-        <span className={styles.logoIcon}>🌟</span>
-        <span className={styles.logoText}>OST Starter Guide</span>
-      </div>
 
+      {/* ── Logo / home link ── */}
+      <button
+        className={styles.logo}
+        onClick={onSelectHero}
+        aria-label="OST Starter Guide — go to home"
+        aria-current={activeView === 'hero' ? 'page' : undefined}
+      >
+        <span className={styles.logoIcon} aria-hidden="true">🌟</span>
+        <span className={styles.logoText}>OST Starter Guide</span>
+      </button>
+
+      {/* ── Phase list ── */}
       <ul className={styles.phaseList} role="list">
         {phases.map((phase, index) => {
-          const isActive = phase.id === activePhaseId
+          const isActive = activeView === 'phases' && phase.id === activePhaseId
 
           return (
             <li key={phase.id} className={styles.phaseItem}>
@@ -43,8 +40,8 @@ export default function Sidebar({
                 aria-current={isActive ? 'true' : undefined}
                 aria-expanded={isActive}
               >
-                <span className={styles.phaseNumber}>{index + 1}</span>
-                <span className={styles.phaseIcon}>{phase.icon}</span>
+                <span className={styles.phaseNumber} aria-hidden="true">{index + 1}</span>
+                <span className={styles.phaseIcon} aria-hidden="true">{phase.icon}</span>
                 <span className={styles.phaseLabel}>{phase.label}</span>
                 <span className={styles.phaseChevron} aria-hidden="true">
                   {isActive ? '▾' : '›'}
@@ -88,8 +85,12 @@ export default function Sidebar({
 
       {/* ── Settings ── */}
       <div className={styles.settings}>
-        <p className={styles.settingsLabel}>Settings</p>
-        <label className={styles.ruralToggle}>
+        <p className={styles.settingsLabel} id="settings-label">Settings</p>
+        <div
+          className={styles.ruralToggle}
+          role="group"
+          aria-labelledby="settings-label"
+        >
           <span className={styles.ruralToggleText}>
             <span className={styles.ruralIcon} aria-hidden="true">🌾</span>
             <span>Rural community mode</span>
@@ -99,13 +100,13 @@ export default function Sidebar({
             aria-checked={ruralMode}
             className={[styles.toggleTrack, ruralMode ? styles.toggleTrackOn : ''].join(' ')}
             onClick={toggleRuralMode}
-            aria-label="Toggle rural community tips"
+            aria-label={ruralMode ? 'Rural community tips: on. Click to turn off.' : 'Rural community tips: off. Click to turn on.'}
           >
-            <span className={[styles.toggleThumb, ruralMode ? styles.toggleThumbOn : ''].join(' ')} />
+            <span className={[styles.toggleThumb, ruralMode ? styles.toggleThumbOn : ''].join(' ')} aria-hidden="true" />
           </button>
-        </label>
+        </div>
         {ruralMode && (
-          <p className={styles.ruralHint}>
+          <p className={styles.ruralHint} role="status">
             Rural-specific tips are now visible throughout the guide.
           </p>
         )}

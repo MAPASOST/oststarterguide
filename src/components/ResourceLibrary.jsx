@@ -317,7 +317,7 @@ export default function ResourceLibrary() {
       </header>
 
       {/* ── Filters ── */}
-      <div className={styles.filterPanel}>
+      <div className={styles.filterPanel} data-print-hide>
         {/* Search */}
         <div className={styles.searchRow}>
           <span className={styles.searchIcon} aria-hidden="true">🔍</span>
@@ -371,7 +371,7 @@ export default function ResourceLibrary() {
       </div>
 
       {/* ── Result count + clear ── */}
-      <div className={styles.resultRow}>
+      <div className={styles.resultRow} data-print-hide>
         <p className={styles.resultCount} aria-live="polite" aria-atomic="true">
           {filtered.length === RESOURCES.length
             ? `${RESOURCES.length} resources`

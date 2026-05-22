@@ -1,0 +1,89 @@
+.wrapper {
+  position: relative;
+  display: inline;
+}
+
+/* The term itself looks like dotted-underlined text */
+.trigger {
+  display: inline;
+  border-bottom: 1.5px dotted var(--stone-500);
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: help;
+  padding: 0;
+  line-height: inherit;
+}
+.trigger:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+  border-bottom-color: transparent;
+}
+
+/* Tooltip bubble */
+.tip {
+  position: absolute;
+  z-index: 300;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  background: var(--stone-900);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  box-shadow: var(--shadow-lg);
+  text-align: left;
+  /* Prevent text from inheriting any styles from parent */
+  font-style: normal;
+  text-decoration: none;
+}
+.tipTerm {
+  font-weight: 700;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 3px;
+  opacity: 0.7;
+}
+
+/* Downward arrow */
+.tip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--stone-900);
+}
+
+/* Show on hover or keyboard focus */
+.wrapper:hover .tip,
+.wrapper:focus-within .tip {
+  opacity: 1;
+}
+
+/* Prevent overflow near page edges */
+@media (max-width: 480px) {
+  .tip {
+    width: 210px;
+    left: 0;
+    transform: none;
+  }
+  .tip::after { left: 16px; transform: none; }
+}
+
+/* Hide tooltip in print */
+@media print {
+  .trigger { border-bottom: none; }
+  .tip { display: none; }
+}

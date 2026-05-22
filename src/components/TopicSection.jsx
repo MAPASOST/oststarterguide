@@ -40,7 +40,19 @@ export default function TopicSection({ section, colorKey, isActive, onVisible })
       {/* ── Heading bar ── */}
       <div className={`${styles.headingBar} ${styles[`color-${colorKey}`]}`}>
         <h2 id={`heading-${section.id}`} className={styles.heading}>
-          {section.title}
+          <span className={styles.headingText}>{section.title}</span>
+          <a
+            href={`#${section.id}`}
+            className={styles.anchorLink}
+            aria-label={`Permalink to "${section.title}"`}
+            data-print-hide
+            onClick={() => {
+              // Ensure the hash is reflected in the address bar
+              history.pushState(null, '', `#${section.id}`)
+            }}
+          >
+            <span aria-hidden="true">#</span>
+          </a>
         </h2>
       </div>
 

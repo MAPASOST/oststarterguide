@@ -17,7 +17,30 @@
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.3;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
 }
+.headingText { flex: 1; }
+
+/* Anchor permalink — hidden until heading is hovered or link is focused */
+.anchorLink {
+  font-size: 0.875rem;
+  font-weight: 700;
+  opacity: 0;
+  color: currentColor;
+  text-decoration: none;
+  padding: 1px 4px;
+  border-radius: var(--radius-sm);
+  transition: opacity 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.headingBar:hover .anchorLink,
+.anchorLink:focus-visible {
+  opacity: 0.55;
+}
+.anchorLink:hover { opacity: 1 !important; background: rgba(0,0,0,0.07); }
+.anchorLink:focus-visible { opacity: 1; outline: 2px solid currentColor; outline-offset: 2px; }
 
 /* Color variants for heading bar */
 .color-blue  { background: var(--blue-50);  color: var(--blue-900);  }

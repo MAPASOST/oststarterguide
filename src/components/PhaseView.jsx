@@ -16,33 +16,38 @@ export default function PhaseView({ phase, activeSectionId, onSelectSection }) {
   return (
     <div className={styles.phaseView}>
       {/* ── Phase header ── */}
-      <header className={`${styles.phaseHeader} ${styles[`color-${phase.colorKey}`]}`}>
+      <header
+        className={`${styles.phaseHeader} ${styles[`color-${phase.colorKey}`]}`}
+        data-phase-header
+        aria-labelledby={`phase-title-${phase.id}`}
+      >
         <div className={styles.phaseHeaderInner}>
           <span className={styles.phaseIcon} aria-hidden="true">{phase.icon}</span>
           <div>
-            <p className={styles.phaseEyebrow}>Phase</p>
-            <h1 className={styles.phaseTitle}>{phase.label}</h1>
+            <p className={styles.phaseEyebrow} aria-hidden="true">Phase</p>
+            <h1 id={`phase-title-${phase.id}`} className={styles.phaseTitle}>{phase.label}</h1>
             <p className={styles.phaseTagline}>{phase.tagline}</p>
           </div>
         </div>
 
         {/* ── Mobile rural mode toggle ── */}
-        <div className={styles.mobileRuralRow}>
+        <div className={styles.mobileRuralRow} data-print-hide>
           <button
             role="switch"
             aria-checked={ruralMode}
+            aria-label={ruralMode ? 'Rural community tips: on. Tap to turn off.' : 'Rural community tips: off. Tap to turn on.'}
             className={[styles.mobileRuralBtn, ruralMode ? styles.mobileRuralBtnOn : ''].join(' ')}
             onClick={toggleRuralMode}
           >
             <span aria-hidden="true">🌾</span>
-            <span>{ruralMode ? 'Rural tips: on' : 'Rural tips: off'}</span>
-            <span className={[styles.mobilePill, ruralMode ? styles.mobilePillOn : ''].join(' ')} />
+            <span aria-hidden="true">{ruralMode ? 'Rural tips: on' : 'Rural tips: off'}</span>
+            <span className={[styles.mobilePill, ruralMode ? styles.mobilePillOn : ''].join(' ')} aria-hidden="true" />
           </button>
         </div>
 
         {/* ── Mobile in-phase section list ── */}
         {phase.sections.length > 0 && (
-          <nav className={styles.mobileSectionNav} aria-label="Sections in this phase">
+          <nav className={styles.mobileSectionNav} aria-label="Sections in this phase" data-print-hide>
             <ul className={styles.mobileSectionList} role="list">
               {phase.sections.map((section) => (
                 <li key={section.id}>

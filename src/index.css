@@ -134,9 +134,77 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 a { color: inherit; }
 ul, ol { padding-left: var(--space-6); }
 
+/* ─── Focus management ───────────────────────────────────────────────────── */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+main:focus { outline: none; }
+
+/* ─── Skip-to-content ────────────────────────────────────────────────────── */
+.skip-link {
+  position: fixed;
+  top: -56px;
+  left: var(--space-4);
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  background: var(--blue-600);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+  transition: top 0.15s;
+}
+.skip-link:focus { top: 0; outline: 3px solid var(--blue-300); outline-offset: 0; border-radius: 0 0 var(--radius-md) var(--radius-md); }
+
 /* ─── Utility helpers ────────────────────────────────────────────────────── */
 .sr-only {
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ─── Print stylesheet ───────────────────────────────────────────────────── */
+@media print {
+  @page { margin: 2cm; size: A4 portrait; }
+
+  /* Layout reset */
+  body { background: white !important; font-size: 11pt; color: #000; }
+  [data-content-body] { margin-left: 0 !important; padding: 0 !important; }
+
+  /* Hide navigation chrome */
+  nav[aria-label="Guide navigation"],
+  nav[aria-label="Phase navigation"],
+  .skip-link,
+  [data-print-hide] { display: none !important; }
+
+  /* Remove decorative effects */
+  * { box-shadow: none !important; transition: none !important; animation: none !important; }
+
+  /* Show URLs after external links */
+  a[href]:not([href^="#"])::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+    word-break: break-all;
+  }
+
+  /* Page break before each phase header */
+  [data-phase-header] { page-break-before: always; break-before: page; }
+  [data-phase-header]:first-of-type { page-break-before: avoid; break-before: avoid; }
+
+  /* Keep section cards together */
+  section { page-break-inside: avoid; break-inside: avoid; }
+  h2, h3 { page-break-after: avoid; break-after: avoid; }
+
+  /* Flatten phase color backgrounds for print */
+  [class*="color-blue"],
+  [class*="color-teal"],
+  [class*="color-green"] { background: #f4f4f4 !important; color: #000 !important; }
 }
