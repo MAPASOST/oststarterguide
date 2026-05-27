@@ -86,10 +86,10 @@
   --phase-green-text:   var(--green-700);
 
   /* Layout */
-  --sidebar-width:   260px;
+  --sidebar-width:   280px;
   --tabbar-height:   60px;
   --header-height:   56px;
-  --content-max-w:   720px;
+  --content-max-w:   1200px;
 
   /* Type */
   --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -124,8 +124,8 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.65;
   color: var(--color-text);
   background: var(--color-bg);
 }
